@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+html {
+    font-size: 10px;
+}
+
+a {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #000;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.contenedor {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjeta {
+    width: 70%;
+    height: 70%;
+    background: #fff;
+    background-size: cover;
+    background-position: left;
+    border-radius: 30px;
+    display: flex;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+}
+
+.tarjeta__img,
+.tarjeta__texto {
+    height: 100%;
+}
+
+.tarjeta__img {
+    width: 40%;
+    background: url('../images/bg-pattern-desktop.svg');
+    background-size: cover;
+    background-position: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.tarjeta__img .caja {
+    position: absolute;
+    width: 200px;
+    height: 170px;
+    top: 50%;
+    left: 0;
+    animation: levitacion 4s linear infinite;
+}
+
+.linea {
+    width: 100%;
+    height: 1px;
+    background: hsl(240, 5%, 91%);
+}
+
+@keyframes levitacion {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.tarjeta__img img {
+    width: 100%;
+}
+
+.tarjeta__texto {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px;
+}
+
+.acordeon__item {
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.acordeon__item .link {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: hsl(240, 6%, 50%);
+}
+
+.acordeon__item .link:hover {
+    color: hsl(14, 88%, 65%);
+}
+
+.acordeon__item .link i {
+    color: hsl(14, 88%, 65%);
+    padding: .5rem;
+    font-size: 2rem;
+}
+
+.acordeon__item .link .fa-angle-up {
+    display: none;
+}
+
+.acordeon__item .detalle {
+    width: 90%;
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    transition: max-height 650ms;
+}
+
+
+/* .detalle::before {
+    content: '';
+    position: absolute;
+    width: .5rem;
+    height: 90%;
+    background: #8fc460;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+} */
+
+.acordeon__item .detalle p {
+    color: hsl(237, 12%, 33%);
+    font-size: 1.3rem;
+    font-weight: 300;
+    padding: 10px 0;
+}
+
+.acordeon__item:target .detalle {
+    max-height: 20rem;
+}
+
+.acordeon__item:target .link {
+    font-weight: 700;
+}
+
+.acordeon__item:target .link .fa-angle-down {
+    display: none;
+}
+
+.acordeon__item:target .link .fa-angle-up {
+    display: block;
+}
+
+@media (max-width: 1440px) {
+    .tarjeta {
+        flex-wrap: wrap;
+        width: 90%;
+        height: 75%;
+    }
+}
+
+@media (max-width: 800px) {
+    .tarjeta__img,
+    .tarjeta__texto {
+        width: 100%;
+        padding: 30px;
+    }
+    .tarjeta__texto {
+        justify-content: center;
+        width: 100%;
+        height: 80%;
+    }
+    .tarjeta__img .caja {
+        width: 100px;
+        height: 100px;
+        top: 15px;
+        left: 100px;
+    }
+    .tarjeta__texto h1 {
+        text-align: center;
+    }
+    .tarjeta__img {
+        width: 80%;
+        height: 20%;
+        margin: auto;
+        background: url('../images/bg-pattern-mobile.svg');
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center;
+    }
+    .tarjeta__img img {
+        width: 70%;
+        position: absolute;
+        top: -120px;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 9px;
+    }
+    .tarjeta__texto {
+        justify-content: initial;
+        height: 80%;
+    }
+    .tarjeta__texto h1 {
+        text-align: center;
+    }
+    .tarjeta__img {
+        width: 80%;
+        height: 20%;
+        margin: auto;
+        background: url('../images/bg-pattern-mobile.svg');
+        background-repeat: no-repeat;
+        background-size: 80%;
+        background-position: bottom;
+    }
+    .tarjeta__img img {
+        width: 90%;
+        position: absolute;
+        top: -100px;
+    }
+    .tarjeta__img .caja {
+        width: 70px;
+        height: 70px;
+        top: 0;
+        left: 30px;
+    }
+    .tarjeta__img .tarjeta__texto {
+        height: 80%;
+    }
+    .acordeon__item {
+        margin-bottom: 0px;
+    }
+}
